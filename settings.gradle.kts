@@ -9,4 +9,4 @@
  */
 
 rootProject.name = "mine.java-new-features"
-include("app", "list", "utilities")
+include("java9", "java11")

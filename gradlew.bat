@@ -38,7 +38,7 @@ set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
 
-set JAVA_EXE=C:/_USR_LOCAL/OpenJDK/jdk-17.0.1/bin/java.exe
+set JAVA_EXE=%JAVA_HOME%/bin/java.exe
 %JAVA_EXE% -version >NUL 2>&1
 if "%ERRORLEVEL%" == "0" goto execute
 
