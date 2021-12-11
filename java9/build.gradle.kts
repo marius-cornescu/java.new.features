@@ -11,6 +11,10 @@ plugins {
     `java-library`
 }
 
+tasks.compileJava {
+    options.release.set(9)
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -30,4 +34,8 @@ dependencies {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.compilerArgs = listOf("--add-modules", "jdk.incubator.httpclient")
 }

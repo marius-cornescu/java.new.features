@@ -7,4 +7,4 @@
  * in the user manual at https://docs.gradle.org/7.3.1/userguide/multi_project_builds.html
  */
 
-rootProject.name = "java-9"
+rootProject.name = "java-11"
