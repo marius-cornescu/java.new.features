@@ -9,7 +9,7 @@ public class FindGitConflict {
     public static void main(String... args) throws Exception {
 
         // Files.lines -> Stream<String>
-        try(Stream<String> streamOfLines = Files.lines(Paths.get("index.html"))) {
+        try(Stream<String> streamOfLines = Files.lines(Paths.get("build/resources/main/index.html"))) {
             streamOfLines
                     .dropWhile(l -> !l.contains("<<<<<<<"))
                     .skip(1)
