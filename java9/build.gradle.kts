@@ -31,3 +31,8 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.withType<JavaCompile>().configureEach {
+    sourceCompatibility = "9"
+    //options.compilerArgs = listOf("--add-modules", "jdk.incubator.httpclient")
+}

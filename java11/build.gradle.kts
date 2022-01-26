@@ -11,6 +11,10 @@ plugins {
     `java-library`
 }
 
+tasks.compileJava {
+    options.release.set(11)
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
