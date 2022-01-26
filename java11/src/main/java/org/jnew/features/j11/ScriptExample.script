@@ -1,0 +1,6 @@
+#!java --source 11
+
+package org.jnew.features.j11;
+
+public class ScriptExample {
+}
