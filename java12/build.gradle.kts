@@ -24,6 +24,10 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 
+    // Use JMH for performance testing
+    testImplementation("org.openjdk.jmh:jmh-core:1.33")
+    testImplementation("org.openjdk.jmh:jmh-generator-annprocess:1.33")
+
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
 
