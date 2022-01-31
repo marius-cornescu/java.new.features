@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="MyJmhTest.*" type="jmh-id" vm-parameters="" program-parameters="org.jnew.features.j12.jmh.MyJmhTest.*" working-dir="$MODULE_WORKING_DIR$" benchmark-type="CLASS" benchmark-class="org.jnew.features.j12.jmh.MyJmhTest">
+  <configuration default="false" name="MyJmhTest.*" type="jmh-id" vm-parameters="" program-parameters="org.jnew.features.j12.jmh.BenchmarkMapStrategyVsSwitch.*" working-dir="$MODULE_WORKING_DIR$" benchmark-type="CLASS" benchmark-class="org.jnew.features.j12.jmh.BenchmarkMapStrategyVsSwitch">
     <module name="java-12.test" />
     <method v="2">
       <option name="Make" enabled="true" />
