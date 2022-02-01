@@ -12,7 +12,7 @@ plugins {
 }
 
 tasks.compileJava {
-    options.release.set(15)
+    options.release.set(16)
 }
 
 repositories {
