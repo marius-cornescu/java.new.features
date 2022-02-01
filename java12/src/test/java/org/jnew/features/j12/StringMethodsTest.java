@@ -14,7 +14,7 @@ class StringMethodsTest {
         // when
         String actual = singleText.indent(5);
 
-        //then
+        // then
         assertEquals("     ha \n", actual);
     }
 
@@ -26,7 +26,7 @@ class StringMethodsTest {
         // when
         String actual = singleText.indent(5);
 
-        //then
+        // then
         assertEquals("     This \n" +
                 "     Is\n" +
                 "     A\n" +
@@ -46,7 +46,7 @@ class StringMethodsTest {
                 .transform(String::lines)
                 .count();
 
-        //then
+        // then
         assertEquals(5, actual);
     }
 

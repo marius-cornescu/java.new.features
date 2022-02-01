@@ -22,7 +22,7 @@ class CompactNumbersFormatTest {
         String actual2000 = shortNF.format(1_500);
         String actual1k5 = shortNF2.format(1_500);
 
-        //then
+        // then
         assertEquals("1K", actual1000);
         assertEquals("1M", actual1Mil);
         assertEquals("2K", actual2000);
@@ -42,7 +42,7 @@ class CompactNumbersFormatTest {
         String actual2000 = shortNF.format(1_500);
         String actual1k5 = shortNF2.format(1_500);
 
-        //then
+        // then
         assertEquals("1.000", actual1000);
         assertTrue(actual1Mil.endsWith("Mio."));
         assertEquals("1.500", actual2000);

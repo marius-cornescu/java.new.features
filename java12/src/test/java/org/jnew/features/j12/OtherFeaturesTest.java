@@ -32,7 +32,7 @@ class OtherFeaturesTest {
                         )
                 );
 
-        //then
+        // then
         assertEquals(25L, actual);
     }
 
@@ -51,7 +51,7 @@ class OtherFeaturesTest {
                 Path.of("build/resources/test/second_text.txt")
         );
 
-        //then
+        // then
         assertEquals(-1, sameFiles);
         assertEquals(0, differentFiles);
     }
@@ -94,7 +94,7 @@ class OtherFeaturesTest {
             default -> "PARTY - Y because I got to".hashCode();
         };
 
-        //then
+        // then
         assertEquals(30L, actual);
     }
 
@@ -113,7 +113,7 @@ class OtherFeaturesTest {
         // when
         var actual = rules.getOrDefault(source, rules.get(null));
 
-        //then
+        // then
         assertEquals(30L, actual);
     }
 }
