@@ -53,6 +53,7 @@ public class BenchmarkMapStrategyVsSwitch {
             results[i] = numberCruncher.crunch(dataSource[index],
                     number -> {
                         bh.consume(number);
+
                         return number;
                     }
             );
