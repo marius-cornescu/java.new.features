@@ -30,6 +30,8 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:32.0.0-android")
 
+    implementation("jakarta.validation:jakarta.validation-api:3.0.2")
+
     implementation("org.projectlombok:lombok:1.18.30")
     annotationProcessor("org.projectlombok:lombok:1.18.30")
 }
