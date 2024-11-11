@@ -5,6 +5,10 @@
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
  * User Manual available at https://docs.gradle.org/7.3.1/userguide/building_java_projects.html
  */
+val junitVersion = "5.7.2"
+val guavaVersion = "33.3.1-android"
+
+val lombokVersion = "1.18.30"
 
 plugins {
     // Apply the java-library plugin for API and implementation separation.
@@ -21,17 +25,18 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.google.guava:guava:32.0.0-android")
+    implementation("com.google.guava:guava:$guavaVersion")
 
-    implementation("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+
+    testImplementation("org.projectlombok:lombok:$lombokVersion")
+    // Use JUnit Jupiter for testing.
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 }
 
 tasks.named<Test>("test") {
