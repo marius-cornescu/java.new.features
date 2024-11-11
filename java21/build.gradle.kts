@@ -6,13 +6,17 @@
  * User Manual available at https://docs.gradle.org/7.3.1/userguide/building_java_projects.html
  */
 
+val lombokVersion = "1.18.30"
+
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
 }
 
-tasks.compileJava {
-    options.release.set(21)
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 repositories {
@@ -21,17 +25,24 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
-
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:32.0.0-android")
 
-    implementation("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    implementation("jakarta.validation:jakarta.validation-api:3.0.2")
+
+    implementation("org.slf4j:slf4j-log4j12:2.0.5")
+
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+
+    // Use JUnit Jupiter for testing.
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
+
+    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
 }
 
 tasks.named<Test>("test") {
