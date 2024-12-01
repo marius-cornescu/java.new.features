@@ -6,11 +6,14 @@
  * User Manual available at https://docs.gradle.org/7.3.1/userguide/building_java_projects.html
  */
 
-val lombokVersion = "1.18.30"
+val slf4jVs = "2.0.16"
+val log4jVs = "2.24.2"
+val lombokVs = "1.18.36"
+val junitJupiterVs = "5.11.3"
 
 plugins {
-    // Apply the java-library plugin for API and implementation separation.
-    `java-library`
+    id("java")
+    id("io.freefair.lombok") version "8.11"
 }
 
 java {
@@ -25,24 +28,17 @@ repositories {
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api("org.apache.commons:commons-math3:3.6.1")
+    // LOGGING
+    implementation("org.slf4j:slf4j-api:$slf4jVs")
+    implementation("org.slf4j:slf4j-log4j12:$slf4jVs")
+    implementation("org.apache.logging.log4j:log4j-core:$log4jVs")
 
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.google.guava:guava:32.0.0-android")
+    compileOnly("org.projectlombok:lombok:$lombokVs")
+    annotationProcessor("org.projectlombok:lombok:$lombokVs")
 
-    implementation("jakarta.validation:jakarta.validation-api:3.0.2")
-
-    implementation("org.slf4j:slf4j-log4j12:2.0.5")
-
-    compileOnly("org.projectlombok:lombok:$lombokVersion")
-
-    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
-
-    // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
-
-    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+    // TESTING
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVs")
+    testCompileOnly("org.projectlombok:lombok:$lombokVs")
 }
 
 tasks.named<Test>("test") {
