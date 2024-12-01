@@ -18,14 +18,14 @@ class PatternMatchingForSwitchTest {
 
     static Stream<Arguments> variousListsOfTypes() {
         return Stream.of(
-                of(List.of(new AType(3600), new BType(10)), 70),
-                of(List.of(new AType(60), new BType(1)), 2)
+                of("60 minutes + 10 minutes" ,List.of(new AType(3600), new BType(10)), 70),
+                of("1 minute + 1 minute", List.of(new AType(60), new BType(1)), 2)
         );
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Test {index}: ({0}) = {2} minutes")
     @MethodSource("variousListsOfTypes")
-    void calculateTotalDurationInMinutes(List<DefaultType> types, long expectedValue) {
+    void calculateTotalDurationInMinutes(String name, List<DefaultType> types, long expectedValue) {
         // given
         ToLongFunction<DefaultType> toMinutes = (DefaultType value) -> switch (value) {
             case AType a -> a.getTimeInSeconds() / 60;
