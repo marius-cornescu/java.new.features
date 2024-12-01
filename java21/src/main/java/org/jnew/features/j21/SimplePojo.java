@@ -8,3 +8,4 @@ import java.time.Duration;
 public record SimplePojo(String name, Duration length) {
 
 }
+

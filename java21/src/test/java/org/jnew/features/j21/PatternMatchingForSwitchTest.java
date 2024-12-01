@@ -6,10 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.SequencedCollection;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.function.ToLongFunction;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,13 +16,31 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 @Slf4j
 class PatternMatchingForSwitchTest {
 
-    @Test
-    void test() {
+    static Stream<Arguments> variousCollectionValues() {
+        return Stream.of(
+                of(List.of(new AType(3600), new BType(10)), 70),
+                of(List.of(new AType(60), new BType(1)), 2)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("variousCollectionValues")
+    void calculateTotalDurationInMinutes(List<DefaultType> types, long expectedValue) {
         // given
+        ToLongFunction<DefaultType> toMinutes = (DefaultType value) -> switch (value) {
+            case AType a -> a.getTimeInSeconds() / 60;
+            case BType b -> b.getTimeInMinutes();
+            case null -> 0;
+            default -> throw new NoSuchElementException("TIAB: Type is not known");
+        };
 
         // when
+        var totalMinutes = types.stream()
+                .mapToLong(toMinutes)
+                .sum();
 
         // then
+        assertEquals(expectedValue, totalMinutes);
     }
 
 }
