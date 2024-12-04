@@ -2,16 +2,16 @@ package org.jnew.features.j21;
 
 import lombok.Getter;
 
-public interface DefaultType {
+public sealed interface DefaultSealedType {
     String getName();
 }
 
 @Getter
-class AType implements DefaultType {
+final class ASealedType implements DefaultSealedType {
 
     private final long timeInSeconds;
 
-    AType(long timeInSeconds) {
+    ASealedType(long timeInSeconds) {
         this.timeInSeconds = timeInSeconds;
     }
 
@@ -23,11 +23,11 @@ class AType implements DefaultType {
 }
 
 @Getter
-class BType implements DefaultType {
+final class BSealedType implements DefaultSealedType {
 
     private final long timeInMinutes;
 
-    BType(long timeInMinutes) {
+    BSealedType(long timeInMinutes) {
         this.timeInMinutes = timeInMinutes;
     }
 
