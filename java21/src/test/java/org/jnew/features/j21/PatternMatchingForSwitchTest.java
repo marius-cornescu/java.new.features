@@ -23,7 +23,7 @@ class PatternMatchingForSwitchTest {
         );
     }
 
-    @ParameterizedTest(name = "Test {index}: ({0}) = {2} minutes")
+    @ParameterizedTest(name = "[{index}]: ({0}) = {2} minutes")
     @MethodSource("variousListsOfTypes")
     void calculateTotalDurationInMinutes(String name, List<DefaultType> types, long expectedValue) {
         // given
@@ -50,7 +50,7 @@ class PatternMatchingForSwitchTest {
         );
     }
 
-    @ParameterizedTest(name = "Test {index}: ({0}) = {2} minutes")
+    @ParameterizedTest(name = "[{index}]: ({0}) = {2} minutes")
     @MethodSource("variousListsOfSealedTypes")
     void calculateTotalDurationInMinutesForSealed(String name, List<DefaultSealedType> types, long expectedValue) {
         // given
