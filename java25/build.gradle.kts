@@ -6,7 +6,7 @@ val junitJupiterVs = "5.11.3"
 
 plugins {
     id("java")
-    id("io.freefair.lombok") version "8.11"
+    id("io.freefair.lombok") version "9.1.0"
 }
 
 java {
