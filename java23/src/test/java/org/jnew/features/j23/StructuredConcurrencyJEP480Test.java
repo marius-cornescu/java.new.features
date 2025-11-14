@@ -43,7 +43,7 @@ class StructuredConcurrencyJEP480Test {
         return () -> {
             try {
                 Thread.sleep(1000);
-                log.atInfo().addArgument(Thread.currentThread()).log("DONE by [{}}]");
+                log.atInfo().addArgument(Thread.currentThread()).log("DONE by [{}]");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

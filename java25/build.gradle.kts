@@ -1,8 +1,8 @@
-
 val slf4jVs = "2.0.16"
 val log4jVs = "2.24.2"
-val lombokVs = "1.18.36"
+val lombokVs = "1.18.42"
 val junitJupiterVs = "5.11.3"
+val assertjVs = "3.27.6"
 
 plugins {
     id("java")
@@ -11,7 +11,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
@@ -31,10 +31,14 @@ dependencies {
 
     // TESTING
     testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVs")
+    testImplementation("org.assertj:assertj-core:$assertjVs")
+
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
     testCompileOnly("org.projectlombok:lombok:$lombokVs")
 }
 
-tasks.named<Test>("test") {
+tasks.test {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
