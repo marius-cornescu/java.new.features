@@ -1,8 +1,8 @@
 val slf4jVs = "2.0.16"
-val log4jVs = "2.24.2"
+val log4jVs = "2.25.3"
 val lombokVs = "1.18.42"
 val junitJupiterVs = "5.11.3"
-val assertjVs = "3.27.6"
+val assertjVs = "3.27.7"
 
 plugins {
     id("java")
